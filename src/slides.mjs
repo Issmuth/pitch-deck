@@ -273,91 +273,9 @@ const demo = {
     </div>`,
 };
 
-// ---------- 6. built for Ethiopia ----------
 
-const RINGS = [
-  ["languages", "Amharic and English", "Prices in birr: 99 ብር"],
-  ["wifi-off", "Works offline", "Access cached for 72 hours"],
-  ["smartphone", "iPhone-safe", "No prices on iPhone, as Apple requires"],
-  ["gift", "Pay for family", "Gift a plan to any M-PESA number"],
-  ["clock", "Renews at your hour", "One PIN prompt, 08:00 to 20:00"],
-  ["store", "Pay anywhere", "In the app, the M-PESA mini app, pay.revet.et"],
-];
-const amPaywall = paywallScreen("et-pw", { headline: "ያልተገደበ የአማርኛ መጻሕፍት፣ ያለ ኢንተርኔትም", sub: "", benefits: [], cta: "በM-PESA ይቀጥሉ", am: true });
-const R = 172; // ring radius
-const ethiopia = {
-  id: "ethiopia",
-  title: "Built for Ethiopia",
-  bg: "#162215",
-  secs: 22,
-  notes: notes(
-    "Everything is built for how Ethiopia pays.",
-    "Every Revet screen is in Amharic and English, with prices in birr. Access keeps working offline for 72 hours. On iPhone we show no prices, as Apple requires; customers verify their number instead. Parents can pay for their children, renewals are one PIN at the hour the customer picks, and they can pay in the app, in the Revet mini app inside M-PESA, or on pay.revet.et.",
-  ),
-  html: `
-    ${label("Built for Ethiopia")}
-    <div class="glow" style="left:1080px;top:60px;width:900px;height:900px;background:radial-gradient(closest-side,rgba(139,231,136,.10),rgba(139,231,136,0))"></div>
-    <h1 class="h1 abs in" style="left:128px;top:160px">Built for how Ethiopia pays.</h1>
-    ${RINGS.map(([ico, t, s], i) => {
-      const cx = 128 + R + (i % 3) * (2 * R - 22), cy = 300 + R + Math.floor(i / 3) * (2 * R - 22);
-      return `<div class="abs ring et-ring" style="left:${cx - R}px;top:${cy - R}px;width:${2 * R}px;height:${2 * R}px">
-        <span class="green">${ic(ico, 34)}</span>
-        <div style="margin-top:14px;font:500 30px/1.12 var(--f-head);text-wrap:balance;max-width:250px">${t}</div>
-        <div class="body" style="margin-top:10px;font-size:20px;line-height:1.35;max-width:240px;text-wrap:balance">${s.replace("99 ብር", '<span class="ethiopic" style="color:#fff;font-weight:700">99 ብር</span>')}</div></div>`;
-    }).join("")}
-    <div class="abs" data-morph="screen" data-morph-kind="box" style="left:1330px;top:140px;width:422px;height:888px;border-radius:56px;background:#0b0b0d">
-      ${androidFrame("et-phone", amPaywall, { style: "left:0;top:0" })}
-    </div>
-    ${FOOT}`,
-};
 
-// ---------- 7. production-ready ----------
 
-const ev = vm.rails.events;
-const stkCb = ev.find((e) => e.api === "stk_callback" && e.outcome === "ok");
-const ACTIVITY = [
-  ["out", "STK Push", "Prompt sent · 99 ETB · ADDISEREADER", "Accepted", "#9ca3af"],
-  ["in", "STK Callback", `Paid · receipt ${stkCb?.summary.split("receipt ")[1] ?? ""}`, "OK", "#8be788"],
-  ["in", "STK Callback", "Duplicate callback ignored · already recorded", "Duplicate ignored", "#d38fd0", true],
-  ["in", "C2B Validation", "Amount matches no live subscription", "Rejected", "#facc15"],
-  ["out", "B2C Payment", `Payout to M-PESA · ${etb(vm.earnings.balance.available)} ETB`, "Accepted", "#9ca3af"],
-  ["in", "B2C Result", `Paid · ${pay?.receipt ?? ""}`, "OK", "#8be788"],
-];
-const SAFETY = [
-  ["copy-check", "One payment, one unlock", "Repeated M-PESA confirmations are ignored"],
-  ["send", "No payout sent twice", "An unknown result is never resent"],
-  ["scale", "Every journal balances", "Double-entry ledger with a built-in check"],
-  ["ban", "Wrong payments rejected", "C2B must match a live subscription"],
-];
-const ready = {
-  id: "ready",
-  title: "Production-ready on M-PESA",
-  bg: "#0f190e",
-  secs: 20,
-  notes: notes(
-    "This runs end to end on M-PESA's Ethiopian sandbox today: STK Push for payments, C2B checks, and B2C payouts that really pay out.",
-    "Money moves in both directions, so correctness is the product. A repeated M-PESA confirmation is ignored, so one payment is one unlock. A payout whose result never came back is never sent again. And every journal in the ledger balances to zero.",
-  ),
-  html: `
-    ${label("Production-ready")}
-    <h1 class="h1 abs in" style="left:128px;top:160px">Working end to end on M-PESA.</h1>
-    <div class="abs in" style="left:128px;top:290px;display:flex;align-items:center;gap:14px"><span class="pill" style="background:transparent;border:1.5px solid var(--line);color:var(--ink-muted);font-weight:500"><span style="width:12px;height:12px;border-radius:6px;background:#8be788"></span>Daraja Ethiopia sandbox</span><span class="pill">STK Push</span><span class="pill">C2B</span><span class="pill">B2C</span></div>
-    ${SAFETY.map(
-      ([ico, t, s], i) => `<div class="abs rd-row" style="left:128px;top:${432 + i * 140}px;display:flex;gap:26px;align-items:flex-start;width:720px">
-        <span class="ring-icon">${ic(ico, 28)}</span><div><div style="font:500 38px/1.1 var(--f-head)">${t}</div><div class="body" style="margin-top:8px;font-size:23px">${s}</div></div></div>`,
-    ).join("")}
-    <div class="abs rd-panel" style="left:880px;top:432px;width:912px;box-sizing:border-box;border-radius:20px;background:#1c1d21;border:1.5px solid #2c2e35;overflow:hidden;font-family:var(--font-sans);box-shadow:0 40px 90px -40px rgba(0,0,0,.8)">
-      <div style="display:flex;align-items:center;justify-content:space-between;padding:22px 26px"><span style="font-size:22px;font-weight:700;color:#fff">M-PESA activity</span><span style="display:flex;align-items:center;gap:10px;font-size:16px;color:#9ca3af"><span style="width:10px;height:10px;border-radius:5px;background:#8be788"></span>Live</span></div>
-      <div style="display:grid;grid-template-columns:230px 1fr 190px;padding:12px 26px;background:#17181c;font-size:15px;color:#c4c7ce"><span>API</span><span>Summary</span><span>Result</span></div>
-      ${ACTIVITY.map(
-        ([dir, api, sum, res, col, dup]) => `<div class="rd-ev${dup ? " rd-dup" : ""}" style="display:grid;grid-template-columns:230px 1fr 190px;align-items:center;padding:17px 26px;border-top:1px solid #25272d;font-size:18px">
-          <span style="display:flex;align-items:center;gap:10px;font-weight:600;color:#fff">${dir === "out" ? icon("arrow-up-right", "", { style: "width:18px;height:18px;color:#4b8fe0" }) : icon("arrow-down-left", "", { style: "width:18px;height:18px;color:#8be788" })}${api}</span>
-          <span style="color:#c4c7ce;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding-right:16px">${sum}</span>
-          <span style="display:flex;align-items:center;gap:9px;color:#c4c7ce;white-space:nowrap"><span style="width:10px;height:10px;border-radius:5px;background:${col}"></span>${res}</span></div>`,
-      ).join("")}
-    </div>
-    ${FOOT}`,
-};
 
 // ---------- 8. business model ----------
 
@@ -545,4 +463,4 @@ const ask = {
     ${FOOT}`,
 };
 
-export const SLIDES = [title, hook, problem, solution, how, demo, ethiopia, ready, model, gtm, world, team, ask];
+export const SLIDES = [title, hook, problem, solution, how, demo, model, gtm, world, team, ask];

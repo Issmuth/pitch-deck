@@ -187,6 +187,14 @@
     const v = $(".dm-video");
     if (S.presenter) v.muted = true;
     bob($(".dm-play span"), -8, 1.4);
+    // Clicking the play overlay starts the video (stops the click from being swallowed by the frame's mousedown).
+    $(".dm-play").addEventListener("mousedown", (e) => {
+      e.stopPropagation();
+      v.play().catch(() => {});
+      gsap.to($(".dm-play"), { opacity: 0, duration: 0.3 });
+      gsap.to(S.root.querySelector(".chrome-label"), { opacity: 0, duration: 0.3 });
+      gsap.to($(".dm-frame"), { left: 0, top: 0, width: 1920, height: 1080, borderRadius: 0, borderWidth: 0, duration: 0.8, ease: "power3.inOut" });
+    });
     tl.to({}, { duration: 0.2 });
     S.step();
     const b = tl.labels.s0 + 0.5;
@@ -204,23 +212,6 @@
   leave.demo = (S) => {
     S.playCall?.kill();
     S.$(".dm-video").pause();
-  };
-
-  // ---------- 6. built for Ethiopia ----------
-  A.ethiopia = (S) => {
-    const { tl, $$ } = S;
-    tl.from($$(".et-ring"), { opacity: 0, scale: 0.86, duration: 0.7, ease: "back.out(1.6)", stagger: 0.1 }, 0.35);
-    S.step();
-  };
-
-  // ---------- 7. production-ready ----------
-  A.ready = (S) => {
-    const { tl, $, $$ } = S;
-    tl.from($$(".rd-row"), { opacity: 0, x: -34, duration: 0.7, ease: "power3.out", stagger: 0.12 }, 0.3)
-      .from($(".rd-panel"), { opacity: 0, y: 40, duration: 0.8, ease: "power3.out" }, 0.4)
-      .from($$(".rd-ev"), { opacity: 0, x: -18, duration: 0.4, ease: "power2.out", stagger: 0.22 }, 0.9)
-      .fromTo($(".rd-dup"), { backgroundColor: "rgba(211,143,208,0.30)" }, { backgroundColor: "rgba(211,143,208,0.10)", duration: 1.2 }, 1.45);
-    S.step();
   };
 
   // ---------- 8. business model ----------
