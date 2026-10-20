@@ -1,0 +1,459 @@
+/*! tailwindcss v4.3.3 | MIT License | https://tailwindcss.com */
+@layer properties;
+@layer theme, base, components, utilities;
+@layer theme {
+  :root, :host {
+    --font-sans: "Plus Jakarta Sans Variable", -apple-system, BlinkMacSystemFont, "Noto Sans Ethiopic", system-ui, sans-serif;
+    --default-font-family: "Plus Jakarta Sans Variable", -apple-system, BlinkMacSystemFont, "Noto Sans Ethiopic", system-ui, sans-serif;
+    --default-mono-font-family: "JetBrains Mono Variable", ui-monospace, monospace;
+    --font-ethiopic: "Noto Sans Ethiopic", "Plus Jakarta Sans Variable", sans-serif;
+  }
+}
+@layer base {
+  *, ::after, ::before, ::backdrop, ::file-selector-button {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0 solid;
+  }
+  html, :host {
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+    tab-size: 4;
+    font-family: var(--font-sans);
+    font-feature-settings: var(--default-font-feature-settings, normal);
+    font-variation-settings: var(--default-font-variation-settings, normal);
+    -webkit-tap-highlight-color: transparent;
+  }
+  hr {
+    height: 0;
+    color: inherit;
+    border-top-width: 1px;
+  }
+  abbr:where([title]) {
+    -webkit-text-decoration: underline dotted;
+    text-decoration: underline dotted;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-size: inherit;
+    font-weight: inherit;
+  }
+  a {
+    color: inherit;
+    -webkit-text-decoration: inherit;
+    text-decoration: inherit;
+  }
+  b, strong {
+    font-weight: bolder;
+  }
+  code, kbd, samp, pre {
+    font-family: var(--font-mono);
+    font-feature-settings: var(--default-mono-font-feature-settings, normal);
+    font-variation-settings: var(--default-mono-font-variation-settings, normal);
+    font-size: 1em;
+  }
+  small {
+    font-size: 80%;
+  }
+  sub, sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+  sub {
+    bottom: -0.25em;
+  }
+  sup {
+    top: -0.5em;
+  }
+  table {
+    text-indent: 0;
+    border-color: inherit;
+    border-collapse: collapse;
+  }
+  :-moz-focusring:where(:not(iframe)) {
+    outline: auto;
+  }
+  progress {
+    vertical-align: baseline;
+  }
+  summary {
+    display: list-item;
+  }
+  ol, ul, menu {
+    list-style: none;
+  }
+  img, svg, video, canvas, audio, iframe, embed, object {
+    display: block;
+    vertical-align: middle;
+  }
+  img, video {
+    max-width: 100%;
+    height: auto;
+  }
+  button, input, select, optgroup, textarea, ::file-selector-button {
+    font: inherit;
+    font-feature-settings: inherit;
+    font-variation-settings: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    border-radius: 0;
+    background-color: transparent;
+    opacity: 1;
+  }
+  :where(select:is([multiple], [size])) optgroup {
+    font-weight: bolder;
+  }
+  :where(select:is([multiple], [size])) optgroup option {
+    padding-inline-start: 20px;
+  }
+  ::file-selector-button {
+    margin-inline-end: 4px;
+  }
+  ::placeholder {
+    opacity: 1;
+  }
+  @supports (not (-webkit-appearance: -apple-pay-button))  or (contain-intrinsic-size: 1px) {
+    ::placeholder {
+      color: currentcolor;
+      @supports (color: color-mix(in lab, red, red)) {
+        color: color-mix(in oklab, currentcolor 50%, transparent);
+      }
+    }
+  }
+  textarea {
+    resize: vertical;
+  }
+  ::-webkit-search-decoration {
+    -webkit-appearance: none;
+  }
+  ::-webkit-date-and-time-value {
+    min-height: 1lh;
+    text-align: inherit;
+  }
+  ::-webkit-datetime-edit {
+    display: inline-flex;
+  }
+  ::-webkit-datetime-edit-fields-wrapper {
+    padding: 0;
+  }
+  ::-webkit-datetime-edit, ::-webkit-datetime-edit-year-field, ::-webkit-datetime-edit-month-field, ::-webkit-datetime-edit-day-field, ::-webkit-datetime-edit-hour-field, ::-webkit-datetime-edit-minute-field, ::-webkit-datetime-edit-second-field, ::-webkit-datetime-edit-millisecond-field, ::-webkit-datetime-edit-meridiem-field {
+    padding-block: 0;
+  }
+  ::-webkit-calendar-picker-indicator {
+    line-height: 1;
+  }
+  :-moz-ui-invalid {
+    box-shadow: none;
+  }
+  button, input:where([type="button"], [type="reset"], [type="submit"]), ::file-selector-button {
+    appearance: button;
+  }
+  ::-webkit-inner-spin-button, ::-webkit-outer-spin-button {
+    height: auto;
+  }
+  [hidden]:where(:not([hidden="until-found"])) {
+    display: none !important;
+  }
+}
+@layer utilities {
+  .block {
+    display: block;
+  }
+  .max-w-none {
+    max-width: none;
+  }
+  .ring {
+    --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor);
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+}
+@font-face {
+  font-family: "Plus Jakarta Sans Variable";
+  font-style: normal;
+  font-display: block;
+  font-weight: 200 800;
+  src: url("fonts/plus-jakarta-sans-latin-wght-normal.woff2") format("woff2-variations");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Plus Jakarta Sans Variable";
+  font-style: normal;
+  font-display: block;
+  font-weight: 200 800;
+  src: url("fonts/plus-jakarta-sans-latin-ext-wght-normal.woff2") format("woff2-variations");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "JetBrains Mono Variable";
+  font-style: normal;
+  font-display: block;
+  font-weight: 100 800;
+  src: url("fonts/jetbrains-mono-latin-wght-normal.woff2") format("woff2-variations");
+}
+@font-face {
+  font-family: "Noto Sans Ethiopic";
+  font-style: normal;
+  font-display: block;
+  font-weight: 400;
+  src: url("fonts/noto-sans-ethiopic-ethiopic-400-normal.woff2") format("woff2");
+  unicode-range: U+0300, U+0302, U+0304, U+0306, U+030C, U+0310, U+0320, U+1200-139F, U+2080-2084, U+2D80-2DDF, U+AB01-AB2F, U+1E7E0-1E7FF;
+}
+@font-face {
+  font-family: "Noto Sans Ethiopic";
+  font-style: normal;
+  font-display: block;
+  font-weight: 700;
+  src: url("fonts/noto-sans-ethiopic-ethiopic-700-normal.woff2") format("woff2");
+  unicode-range: U+0300, U+0302, U+0304, U+0306, U+030C, U+0310, U+0320, U+1200-139F, U+2080-2084, U+2D80-2DDF, U+AB01-AB2F, U+1E7E0-1E7FF;
+}
+:root {
+  color-scheme: dark;
+  --bg-shell: #0f1012;
+  --bg-recessed: #141518;
+  --bg-table-head: #17181c;
+  --bg-canvas: #18191c;
+  --bg-card: #1c1d21;
+  --bg-control: #1d1e22;
+  --bg-row-hover: #22242a;
+  --bg-button-secondary: #24262c;
+  --bg-control-hover: #25272e;
+  --bg-nav-active: #28292e;
+  --border-sidebar: #222328;
+  --border-canvas: #25272d;
+  --border-card: #2c2e35;
+  --border-button-secondary: #383b44;
+  --border-card-hover: #3a3d46;
+  --text-primary: #f3f4f6;
+  --text-secondary: #c4c7ce;
+  --text-muted: #9ca3af;
+  --text-meta: #8e929c;
+  --text-placeholder: #7d828d;
+  --accent: #8be788;
+  --accent-ink: #0e170f;
+  --accent-fg: #8be788;
+  --accent-soft: rgba(139, 231, 136, 0.12);
+  --accent-ring: rgba(139, 231, 136, 0.6);
+  --accent-chart: #8be788;
+  --font-sans: "Plus Jakarta Sans Variable", -apple-system, BlinkMacSystemFont, "Noto Sans Ethiopic", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, monospace;
+  --font-ethiopic: "Noto Sans Ethiopic", "Plus Jakarta Sans Variable", sans-serif;
+}
+html, body {
+  margin: 0;
+  height: 100%;
+}
+body {
+  background: var(--bg-shell);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+.ethiopic {
+  font-family: var(--font-ethiopic);
+}
+.pay-root {
+  --pay-ok: #8be788;
+  --pay-ok-soft: rgba(139, 231, 136, 0.12);
+  --pay-ok-line: rgba(139, 231, 136, 0.3);
+  --pay-warn: #facc15;
+  --pay-warn-soft: rgba(250, 204, 21, 0.1);
+  --pay-warn-line: rgba(250, 204, 21, 0.28);
+  --pay-danger: #f87171;
+  --pay-danger-soft: rgba(248, 113, 113, 0.1);
+  --pay-danger-line: rgba(248, 113, 113, 0.32);
+  --pay-shadow: 0 0 0 transparent;
+  --pay-glow: radial-gradient(60rem 22rem at 15% -10%, rgba(139, 231, 136, 0.07), transparent 60%), radial-gradient(40rem 18rem at 95% 0%, rgba(139, 55, 136, 0.1), transparent 60%);
+  background: var(--bg-shell);
+  color: var(--text-primary);
+}
+.pay-root[data-theme="light"] {
+  --bg-shell: #f3f5f2;
+  --bg-recessed: #eceff0;
+  --bg-table-head: #f0f2ef;
+  --bg-canvas: #f7f8f6;
+  --bg-card: #ffffff;
+  --bg-control: #ffffff;
+  --bg-row-hover: #f2f5f1;
+  --bg-button-secondary: #ffffff;
+  --bg-control-hover: #eef2ec;
+  --bg-nav-active: #e7ece5;
+  --border-sidebar: #e3e7e1;
+  --border-canvas: #e6e9e4;
+  --border-card: #e1e5df;
+  --border-button-secondary: #cfd5cc;
+  --border-card-hover: #c3cac0;
+  --text-primary: #101512;
+  --text-secondary: #333c35;
+  --text-muted: #59625b;
+  --text-meta: #667068;
+  --text-placeholder: #8a928b;
+  --accent: #8be788;
+  --accent-ink: #0e170f;
+  --accent-fg: #1d7a2a;
+  --accent-soft: rgba(29, 122, 42, 0.09);
+  --accent-ring: rgba(29, 122, 42, 0.45);
+  --pay-ok: #1d7a2a;
+  --pay-ok-soft: #e8f6e8;
+  --pay-ok-line: #bfe6c1;
+  --pay-warn: #a15c07;
+  --pay-warn-soft: #fdf3e2;
+  --pay-warn-line: #f1d9a8;
+  --pay-danger: #b42318;
+  --pay-danger-soft: #fdecea;
+  --pay-danger-line: #f3c7c2;
+  --pay-shadow: 0 1px 2px rgba(16, 21, 18, 0.05), 0 4px 16px rgba(16, 21, 18, 0.04);
+  --pay-glow: radial-gradient(60rem 22rem at 15% -10%, rgba(139, 231, 136, 0.18), transparent 60%), radial-gradient(40rem 18rem at 95% 0%, rgba(139, 55, 136, 0.07), transparent 60%);
+}
+.pay-root[lang="am"] {
+  font-family: var(--font-ethiopic);
+  line-height: 1.6;
+}
+.hf-frame {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: var(--bg-shell);
+}
+.hf-cam {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1440px;
+  height: 810px;
+  transform-origin: 0 0;
+}
+.hf-console {
+  position: absolute;
+  inset: 0;
+  font-size: 13px;
+  overflow: hidden;
+}
+.hf-cursor {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 22px;
+  height: 22px;
+  z-index: 80;
+  pointer-events: none;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.55));
+}
+.hf-ripple {
+  position: absolute;
+  left: -16px;
+  top: -16px;
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  border: 2px solid var(--accent);
+  opacity: 0;
+}
+.hf-label {
+  position: absolute;
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 640px;
+  padding: 22px 28px 24px;
+  border-radius: 18px;
+  border: 1px solid #34363e;
+  background: rgba(20, 21, 24, 0.94);
+  box-shadow: 0 24px 60px -20px rgba(0, 0, 0, 0.85);
+}
+.hf-glow {
+  position: absolute;
+  border-radius: 999px;
+  pointer-events: none;
+}
+@property --tw-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-inset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-ring-inset {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-offset-width {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+@property --tw-ring-offset-color {
+  syntax: "*";
+  inherits: false;
+  initial-value: #fff;
+}
+@property --tw-ring-offset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    *, ::before, ::after, ::backdrop {
+      --tw-shadow: 0 0 #0000;
+      --tw-shadow-color: initial;
+      --tw-shadow-alpha: 100%;
+      --tw-inset-shadow: 0 0 #0000;
+      --tw-inset-shadow-color: initial;
+      --tw-inset-shadow-alpha: 100%;
+      --tw-ring-color: initial;
+      --tw-ring-shadow: 0 0 #0000;
+      --tw-inset-ring-color: initial;
+      --tw-inset-ring-shadow: 0 0 #0000;
+      --tw-ring-inset: initial;
+      --tw-ring-offset-width: 0px;
+      --tw-ring-offset-color: #fff;
+      --tw-ring-offset-shadow: 0 0 #0000;
+    }
+  }
+}
